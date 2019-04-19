@@ -1,5 +1,5 @@
 defmodule LongestWordFinder do
-  def concurrent_run() do
+  def concurrent() do
     load_corpus()
     |> Flow.from_enumerable()
     |> Flow.map(&String.trim_trailing/1)
@@ -9,19 +9,41 @@ defmodule LongestWordFinder do
     |> Enum.into(%{})
   end
 
-  def single_threaded_run() do
+  def single_threaded() do
     load_corpus()
     |> Stream.map(&String.trim_trailing/1)
     |> Stream.flat_map(&(String.split(&1, " ")))
     |> Enum.reduce(%{word: "", length: 0}, &longest_word/2)
   end
 
-  def times() do
-    {concurrent, _results} = :timer.tc(&concurrent_run/0)
-    {single_threaded, _results} = :timer.tc(&single_threaded_run/0)
+  def result(:single_threaded) do
+    %{word: word, length: length} = single_threaded()
+    "[Single Threaded] word: #{word}, length: #{length}"
+  end
 
-    IO.puts "Concurrent ran in #{concurrent * 0.001} ms"
-    IO.puts "Single Threaded ran in #{single_threaded * 0.001} ms"
+  def result(:concurrent) do
+    %{word: word, length: length} = concurrent()
+    "[Concurrent] word: #{word}, length: #{length}"
+  end
+
+  def result(_) do
+    "Not a valid option"
+  end
+
+  def concurrent_timed_in_ms() do
+    milliseconds(&concurrent/0)
+  end
+
+  def single_threaded_timed_in_ms() do
+    milliseconds(&single_threaded/0)
+  end
+
+  defp milliseconds(fun) do
+    fun
+    |> :timer.tc()
+    |> elem(0)
+    |> Kernel.*(0.001)
+    |> round()
   end
 
   defp load_corpus() do

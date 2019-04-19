@@ -6,6 +6,7 @@ defmodule LongestWordFinder.MixProject do
       app: :longest_word_finder,
       version: "0.1.0",
       elixir: "~> 1.7",
+      escript: escript(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -24,5 +25,9 @@ defmodule LongestWordFinder.MixProject do
     [
       {:flow, "~> 0.14"},
     ]
+  end
+
+  defp escript do
+    [main_module: LongestWordFinder.CLI]
   end
 end
