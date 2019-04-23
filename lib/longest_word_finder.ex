@@ -16,12 +16,12 @@ defmodule LongestWordFinder do
     |> Enum.reduce(%{word: "", length: 0}, &longest_word/2)
   end
 
-  def result(:single_threaded) do
+  def result("single_threaded") do
     %{word: word, length: length} = single_threaded()
     "[Single Threaded] word: #{word}, length: #{length}"
   end
 
-  def result(:concurrent) do
+  def result("concurrent") do
     %{word: word, length: length} = concurrent()
     "[Concurrent] word: #{word}, length: #{length}"
   end
