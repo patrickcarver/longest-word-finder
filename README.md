@@ -1,21 +1,24 @@
 # LongestWordFinder
 
-**TODO: Add description**
+## Instructions
 
-## Installation
+Add "corpus.txt" to the "txt" folder
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `longest_word_finder` to your list of dependencies in `mix.exs`:
+Assuming you have Elixir installed, to build:
 
-```elixir
-def deps do
-  [
-    {:longest_word_finder, "~> 0.1.0"}
-  ]
-end
+```
+mix escript.build
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/longest_word_finder](https://hexdocs.pm/longest_word_finder).
+To run concurrent function on Linux/Mac on the command line:
+
+```
+./longest_word_finder concurrent
+```
+
+To run the single threaded version:
+
+```
+./longest_word_finder single_threaded
+```
 
