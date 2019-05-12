@@ -24,6 +24,7 @@ defmodule LongestWordFinder.MixProject do
   defp deps do
     [
       {:flow, "~> 0.14"},
+      {:benchee, "~> 1.0", only: :dev}
     ]
   end
 

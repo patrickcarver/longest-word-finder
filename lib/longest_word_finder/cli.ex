@@ -7,11 +7,15 @@ defmodule LongestWordFinder.CLI do
     |> IO.puts()
   end
 
-  defp command(arg) when arg in ["single_threaded", "concurrent"] do
-    LongestWordFinder.result(arg)
+  defp command(_arg) do
+    "noop"
   end
 
-  defp command(_arg) do
-    "Invalid argument"
-  end
+ # defp command(arg) when arg in ["single_threaded", "concurrent"] do
+ #   LongestWordFinder.result(arg)
+ # end
+
+ # defp command(_arg) do
+ #   "Invalid argument"
+ # end
 end
