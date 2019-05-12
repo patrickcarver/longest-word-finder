@@ -1,10 +1,10 @@
 Benchee.run(%{
  "concurrent with anonymous function string splitter" =>
-  fn -> LongestWordFinder.concurrent_with_string_splitter("anonymous function") end,
+  fn -> LongestWordFinder.Concurrent.with_anonymous_string_splitter() end,
  "concurrent with function reference string splitter" =>
-  fn -> LongestWordFinder.concurrent_with_string_splitter("function reference") end,
+  fn -> LongestWordFinder.Concurrent.with_function_reference_string_splitter() end,
  "single threaded lazy" =>
-  fn -> LongestWordFinder.single_threaded_lazy() end,
+  fn -> LongestWordFinder.SingleThreaded.lazy() end,
  "single threaded greedy" =>
-  fn -> LongestWordFinder.single_threaded_greedy() end
+  fn -> LongestWordFinder.SingleThreaded.greedy() end
 })

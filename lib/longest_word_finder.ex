@@ -63,6 +63,4 @@ defmodule LongestWordFinder do
 
     defp acc(), do: %{word: "", length: 0}
   end
-
-
 end
