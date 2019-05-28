@@ -40,7 +40,7 @@ defmodule LongestWordFinder do
       run &String.split(&1, " ")
     end
 
-    def with_function_reference_string_splitter do
+    def with_function_reference_string_splitter() do
       run &String.split/1
     end
 
