@@ -33,7 +33,7 @@ defmodule LongestWordFinder do
     end
   end
 
-  defmodule Concurrent do
+  defmodule Parallel do
     alias LongestWordFinder, as: LWF
 
     def with_anonymous_string_splitter() do
